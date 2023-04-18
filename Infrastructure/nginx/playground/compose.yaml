@@ -1,0 +1,18 @@
+services:
+  nginx:
+    image: nginx:mainline-alpine3.17-slim
+    ports:
+      - "8080:80"
+    networks:
+      - nginx-network
+    volumes:
+      - type: bind
+        source: $PWD/conf
+        target: /etc/nginx/conf.d
+      - type: bind
+        source: $PWD/public
+        target: /var/www/public
+
+networks:
+  nginx-network:
+    driver: bridge
