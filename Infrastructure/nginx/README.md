@@ -129,3 +129,16 @@ HOSTヘッダとlocationディレクティブのuriを比較し、該当する�
 serverディレクティブ以下のrootディレクティブから、`/var/www/img.gif`ファイルをもとにレスポンスが組み立てられる。
 
 まとめると、nginxは設定から該当するものを抽出し、得られた設定値に基づいてレスポンスを組み立てる。
+
+## その他の設定
+
+### コンテンツをキャッシュさせるには
+
+[参考](http://nginx.org/en/docs/http/ngx_http_headers_module.html#expires)
+
+> 記法: `expires [modified] time;`
+
+Expires, Cache-Controlヘッダにてコンテンツをキャッシュさせるよう設定。
+
+[Cache-Control参考](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Cache-Control)
+[Expires参考](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/Expires)

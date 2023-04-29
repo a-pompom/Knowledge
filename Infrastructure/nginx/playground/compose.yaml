@@ -1,4 +1,12 @@
 services:
+  php:
+    image: php:8.1.18-fpm
+    volumes:
+      - type: bind
+        source: $PWD/src
+        target: /var/www/src
+    networks:
+      - nginx-network
   nginx:
     image: nginx:mainline-alpine3.17-slim
     ports:
