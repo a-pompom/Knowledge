@@ -1,0 +1,33 @@
+services:
+  mysql:
+    platform: linux/x86_64
+    build:
+      context: ./container/mysql
+      dockerfile: ./Dockerfile
+    env_file: ./container/mysql/.env
+    volumes:
+      - type: volume
+        source: mysql
+        target: /var/lib/mysql
+    networks:
+      - laravel-network
+  laravel:
+    build:
+      context: ./container/php
+      dockerfile: ./Dockerfile
+    stdin_open: true
+    ports:
+      - target: 8000
+        published: "38000"
+    volumes:
+      - type: bind
+        source: ./src
+        target: /home/app
+    networks:
+      - laravel-network
+
+volumes:
+  mysql:
+networks:
+  laravel-network:
+    driver: bridge
