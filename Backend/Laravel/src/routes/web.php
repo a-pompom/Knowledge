@@ -8,3 +8,5 @@ Route::get('/', function () {
 Route::get('/hello', function () {
     return 'Hello World';
 });
+
+require_once __DIR__."/subRoutes/routing.php";
