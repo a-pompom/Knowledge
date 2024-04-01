@@ -25,6 +25,7 @@ services:
         target: /home/app
     networks:
       - laravel-network
+    working_dir: /home/app
 
 volumes:
   mysql:
